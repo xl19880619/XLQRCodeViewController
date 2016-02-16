@@ -85,6 +85,7 @@
 
     __weak __typeof(&*self)weakSelf = self;
     
+    //参与动画的外框
     CGFloat delta = 3;
     CGFloat imageViewWidth = CGRectGetWidth(self.view.bounds)-margin*2+delta*2;
     UIImageView *qrImageView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"qr_scan"] resizableImageWithCapInsets:UIEdgeInsetsMake(22, 22, 22, 22)]];
@@ -93,6 +94,7 @@
     [self.view addSubview:qrImageView];
     self.qrImageView = qrImageView;
     
+    //拥有扫描动画线的View
     UIView *qrAnimationContentView = [[UIView alloc] initWithFrame:CGRectMake(margin, 20+44+margin, CGRectGetWidth(self.view.bounds)-margin*2, CGRectGetWidth(self.view.bounds)-margin*2)];
     qrAnimationContentView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
     qrAnimationContentView.clipsToBounds = YES;
@@ -107,6 +109,7 @@
     self.qrAnimationView.alpha = 0;
     self.qrImageView.alpha = 0;
 
+    //初始化摄像头 动画
     UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     indicatorView.hidesWhenStopped = YES;
     indicatorView.center = self.view.center;
@@ -212,6 +215,7 @@
 }
 
 #pragma mark - Private Action
+
 - (BOOL) setupSession{
     
     BOOL success = NO;

@@ -1,0 +1,2 @@
+# XLQRCodeViewController
+扫描二维码的ViewController
